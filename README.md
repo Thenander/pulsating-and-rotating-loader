@@ -19,8 +19,8 @@ Copy and paste the following code-block in your **CSS** file:
 
 ```
 .pulsating-and-rotating-loader {
-  height: 4em;
-  width: 4em;
+  height: 3.75;
+  width: 3.75;
 }
 .pulsating-and-rotating-loader div {
   box-sizing: border-box;
@@ -48,31 +48,12 @@ Copy and paste the following code-block in your **CSS** file:
   animation-iteration-count: infinite;
 }
 
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
-  }
-}
-
-@-webkit-keyframes puls {
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0;
   }
 }
 
@@ -92,16 +73,17 @@ Copy and paste the following code-block in your **CSS** file:
 Copy and paste the following code-block in your **SCSS** file:
 
 ```
-.pulsating-and-rotating-loader {
-  height: 4em;
-  width: 4em;
+$border: 0.2em solid #000;
 
+.pulsating-and-rotating-loader {
+  height: 3.75em;
+  width: 3.75em;
   div {
     box-sizing: border-box;
     padding: 0.4em;
     width: 100%;
     height: 100%;
-    border: 0.2em solid #000;
+    border: $border;
     border-radius: 100vw;
     animation-name: puls;
     animation-timing-function: cubic-bezier(0, 0.5, 1, 1);
@@ -109,10 +91,9 @@ Copy and paste the following code-block in your **SCSS** file:
     animation-iteration-count: infinite;
     transform: scale(0);
     opacity: 1;
-
     div {
       border-radius: 100vw;
-      border-top: 0.2em solid #000;
+      border-top: $border;
       border-right: 0.2em solid transparent;
       border-bottom: 0.2em solid transparent;
       border-left: 0;
